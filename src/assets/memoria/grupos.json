@@ -1,0 +1,39 @@
+{
+    "palabras": {
+        "1": [
+            "Pared",
+            "Reloj",
+            "Lampara",
+            "Dólar",
+            "Joven",
+            "Ahora"
+           
+        ],
+        "2": [
+            "Dibujo",
+            "Blusa",
+            "Chivo",
+            "Pavo",
+            "Clavel",
+            "Vampiro"
+           
+        ],
+        "3": [
+            "Olla",
+            "Zanahoria",
+            "Humo",
+            "Hielo",
+            "Campo",
+            "Jarro"
+         
+        ],
+        "4": [
+            "Ala",
+            "ola",
+            "hola",
+            "arroz",
+            "horno",
+            "burbuja"
+        ]
+    }
+}
