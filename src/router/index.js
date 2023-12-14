@@ -1,77 +1,72 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import Bienvenida from '../components/Bienvenida.vue'
-import Instruccciones from '../components/Instrucciones.vue'
+import { createRouter, createWebHistory } from 'vue-router';
 
-import Ahorcado from '../modules/ahorcado/Ahorcado.vue'
-import Memoria from '../modules/memoria/Juego.vue'
-import Audio from '../modules/audio/Juego.vue'
-import Informe from '../modules/informe/Informe.vue'
-import Segmentacion from '../modules/segmentacion/Lectura.vue'
-import ComprensionLectora from '../modules/comprensionLectora/Juego.vue'
+const HomeView = () => import('../views/HomeView.vue');
+const AboutView = () => import('../views/AboutView.vue');
+const Bienvenida = () => import('../components/Bienvenida.vue');
+const Instruccciones = () => import('../components/Instrucciones.vue');
+const Ahorcado = () => import('../modules/ahorcado/Ahorcado.vue');
+const Memoria = () => import('../modules/memoria/Juego.vue');
+const Audio = () => import('../modules/audio/Juego.vue');
+const Informe = () => import('../modules/informe/Informe.vue');
+const Segmentacion = () => import('../modules/segmentacion/Lectura.vue');
+const ComprensionLectora = () => import('../modules/comprensionLectora/Juego.vue');
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
   },
   {
     path: '/instrucciones',
     name: 'instrucciones',
-    component: Instruccciones
+    component: Instruccciones,
   },
   {
     path: '/inicio',
     name: 'inicio',
-    component: Bienvenida
+    component: Bienvenida,
   },
   {
     path: '/comprension',
     name: 'comprension',
-    component: ComprensionLectora
+    component: ComprensionLectora,
   },
   {
     path: '/acerca',
     name: 'acerca',
-    component: AboutView
+    component: AboutView,
   },
   {
     path: '/segmentacion',
     name: 'segmentacion',
-    component: Segmentacion
+    component: Segmentacion,
   },
   {
     path: '/ahorcado',
     name: 'ahorcado',
-    component: Ahorcado
-
+    component: Ahorcado,
   },
   {
     path: '/memoria',
     name: 'memoria',
-    component: Memoria
-
+    component: Memoria,
   },
- 
   {
     path: '/audio',
     name: 'audio',
-    component: Audio
-
+    component: Audio,
   },
   {
     path: '/informe',
     name: 'informe',
-    component: Informe
-
-  }
-]
+    component: Informe,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
