@@ -12,6 +12,7 @@ export default {
   mounted() {
     // Cambiar el título de la página
     document.title = 'Dislexteska';
+    console.log("Funcion")
   }
 };
 </script>
