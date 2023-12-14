@@ -86,6 +86,11 @@ export default {
       }
       
     },
+    contadorJuego:function(newValue,oldValue){
+      if(newValue==5){
+        this.intentos==0;
+      }
+    },
     puntuacion:function (newValue,oldValue){
         console.log(newValue);
       }
