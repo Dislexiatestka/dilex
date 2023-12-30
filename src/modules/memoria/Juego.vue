@@ -25,7 +25,7 @@
     <div v-if="(intentos == 0 && contadorJuego != 4) || score == 6">
       <Button @click="siguienteJuego"> Siguiente</Button>
     </div>
-    <div v-if="contadorJuego == 4 && intentos == 0">
+    <div v-if="(contadorJuego == 4 && intentos == 0)|| (score == 6&&contadorJuego==4)">
       <Button @click="siguientePagina"> Siguiente</Button>
 
     </div>
