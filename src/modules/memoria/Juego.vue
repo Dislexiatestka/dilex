@@ -1,6 +1,6 @@
 <template>
   <Toast position="bottom-center" group="tl" />
-  
+
   <Toast position="bottom-center" group="bl" />
 
   <Dialog v-model:visible="visible" :pt="{
@@ -54,8 +54,8 @@ export default {
     const showToastBad = () => {
       toast.add({ severity: 'error', summary: 'Intenta de nuevo', group: 'bl', life: 2000 });
     };
-    return{
-      showToast,showToastBad
+    return {
+      showToast, showToastBad
     }
   },
 
@@ -84,16 +84,15 @@ export default {
       if (newValue <= 0) {
         this.habilitado = true
       }
-      
+
     },
-    contadorJuego:function(newValue,oldValue){
-      if(newValue==5){
-        this.intentos==0;
+    contadorJuego: function (newValue, oldValue) {
+      if (newValue == 5) {
+        this.contadorJuego = 4;
+        this.intentos = 0;
       }
     },
-    puntuacion:function (newValue,oldValue){
-        console.log(newValue);
-      }
+
 
   },
   created() {
@@ -114,7 +113,7 @@ export default {
     },
     siguienteJuego() {
       this.words = []
-      this.score=0
+      this.score = 0
       this.intentos = 7
       this.habilitado = false
       this.contadorJuego++
