@@ -32,7 +32,6 @@
   
 <script>
 export default {
-    name: 'HelloWorld',
     data() {
         return {
             nombre: '',
@@ -62,24 +61,41 @@ export default {
         const jsonDataComprension = localStorage.getItem('informeComprension');
         const dataComprension = JSON.parse(jsonDataComprension);
 
+        if(data!=null){
+            this.nombre = data.nombre; 
 
-        this.nombre = data.nombre; // Esto te da el nombre guardado en el almacenamiento local
+        }
+        
         //50 maximo puntaje
-        this.ahorcado = this.cacularPuntaje(50, dataAhorcado.ahorcado)
+        if(dataAhorcado!=null){
+            this.ahorcado = this.cacularPuntaje(50, dataAhorcado.ahorcado)
+
+        }
         //50 maximo puntaje
-        this.audio = this.cacularPuntaje(50, dataAudio.audio)
+        if(dataAudio!=null){
+            this.audio = this.cacularPuntaje(50, dataAudio.audio)
+
+        }
         //240 maximo puntaje
-        this.memoria = this.cacularPuntaje(240, dataMemoria.memoria)
+        if(dataMemoria!=null){
+            this.memoria = this.cacularPuntaje(240, dataMemoria.memoria)
+
+        }
         //
-        this.segmentacion =  this.cacularPuntaje(50, dataSegmentacion.segmentacion)
-        this.comprension = this.cacularPuntaje(50, dataComprension.comprension)
-        console.log(this.ahorcado)
+        if(dataSegmentacion!=null){
+            this.segmentacion =  this.cacularPuntaje(50, dataSegmentacion.segmentacion)
+
+        }
+        if(dataComprension!=null){
+            this.comprension = this.cacularPuntaje(50, dataComprension.comprension)
+
+        }
         this.todo = [
-            { nombre: "Ahorcado", puntaje: this.ahorcado },
-            { nombre: "Audio", puntaje: this.audio },
-            { nombre: "Segmentacion", puntaje: this.segmentacion },
-            { nombre: "Memoria", puntaje: this.memoria },
-            { nombre: "Comprension", puntaje: this.comprension },
+            { nombre: "Ahorcado", puntaje: this.ahorcado!=null?this.ahorcado:0 },
+            { nombre: "Audio", puntaje: this.audio !=null?this.ahorcado:0},
+            { nombre: "Segmentacion", puntaje: this.segmentacion!=null?this.segmentacion:0 },
+            { nombre: "Memoria", puntaje: this.memoria!=null?this.memoria:0 },
+            { nombre: "Comprension", puntaje: this.comprension!=null?this.comprension:0 },
         ]
 
     },

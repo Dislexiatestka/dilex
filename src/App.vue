@@ -1,23 +1,28 @@
 <template>
+  <div>
     <Navbar />
-    <router-view />
-  
+    <TransitionGroup name="router-anim">
+      <router-view />
+    </TransitionGroup>
+  </div>
 </template>
+
 <script>
-import Navbar from '@/components/Navbar.vue';
+import Navbar from "@/components/Navbar.vue";
+
 export default {
   components: {
-    Navbar,
+    Navbar
   },
   mounted() {
     // Cambiar el título de la página
-    document.title = 'Dislexteska';
-    console.log("Funcion")
-  }
+    document.title = "Dislexteska";
+    console.log("Funcion");
+  },
 };
 </script>
-<style>
 
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,4 +44,13 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
+.router-anim-enter-active,
+.router-anim-leave-active {
+  transition: opacity 0.25s ease-in-out;
+}
+
+.router-anim-enter,
+.router-anim-leave-to {
+  opacity: 0;
+}
 </style>

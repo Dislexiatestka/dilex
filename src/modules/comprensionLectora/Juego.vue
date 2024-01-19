@@ -6,6 +6,7 @@
     }" modal header="Instrucciones" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
         <div class="contenedor-dialgo">
             <h1>{{ instruccion.titulo }}</h1>
+            <img class="vineta" :src="require('@/assets/vinetas/img2.jpg')" alt="">
             <h2><strong>Parte 1:</strong>{{ instruccion.instruccion[0] }}</h2>
             <h2><strong>Parte 2:</strong>{{ instruccion.instruccion[1] }}</h2>
             <button @click="visible = false">Empezar</button>
@@ -183,11 +184,9 @@ export default {
                 for (const [key, value] of this.respuestasSeleccionada) {
 
                     if (this.oracionesRespuestas[key] == value) {
-                        console.log("correcta")
                         this.puntuacion = this.puntuacion + 2.5
                     }
                     else {
-                        console.log("incorrecta")
                     }
                 }
             }
@@ -195,12 +194,10 @@ export default {
                 for (const [key, value] of this.respuestasSeleccionada) {
 
                     if (this.respuestas[key] == value) {
-                        console.log("correcta")
                         this.puntuacion = this.puntuacion + 2.5
 
                     }
                     else {
-                        console.log("incorrecta")
                     }
                 }
             }
@@ -270,7 +267,7 @@ input[type=radio]:checked {
 }
 
 .contenedor {
-    background-image: url("../../assets/fondos/Fondo_lectura_1.jpg");
+    background-image: url("../../assets/fondos/Fondo_Lectura_1.jpg");
     background-size: 100% 100%;
 
 
@@ -317,5 +314,10 @@ Button {
 
 .contenedor-dialgo button:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.vineta{
+    width: 20%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 </style> 

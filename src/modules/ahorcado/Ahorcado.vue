@@ -5,7 +5,7 @@
       style: 'backdrop-filter: blur(2px)'
     }
   }" modal header="Instrucciones" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
-    <Instruccion :titulo=instruccion.titulo :instruccion=instruccion.instruccion></Instruccion>
+    <Instruccion :titulo=instruccion.titulo :instrucciones=instruccion.instrucciones></Instruccion>
     <div class="btn-centrar">
       <button @click="visible = false">Empezar</button>
 
@@ -15,7 +15,7 @@
     <div class="tablero">
       <h1>Juego del ahorcado</h1>
       <h2>Intentos Restantes: </h2>
-      <Knob v-model="intentosTotales" :max="7" :step="-1" readonly valueColor="MediumTurquoise" rangeColor="SlateGray" />
+      <Knob v-model="intentosTotales" :max="8" :step="-1" readonly valueColor="MediumTurquoise" rangeColor="SlateGray" />
 
       <div class="palabra">
         <span v-for="(letra, indice) in palabraOculta" :key="indice">{{ letra }}</span>
@@ -38,6 +38,7 @@
       <button @click="siguientePalabra" class="siguiente">Siguiente</button>
     </div>
   </div>
+  <img :src="require('@/assets/logos/Logo1Test.png')" alt="" >
 </template>
 
 <script>
@@ -54,7 +55,7 @@ export default {
       aciertos: 0,
       imagenActual: "assets/flor/est1.png",
       palabra: null,
-      intentosTotales: 7,
+      intentosTotales: 8,
       alfabeto: "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""),
       letraSeleccionada: "",
       numParticulas: 10,
@@ -67,7 +68,7 @@ export default {
       contadorCorrecto: 0,
       instruccion: {
         titulo: "Actividad del Ahorcado",
-        instruccion: "Selecciona las letras correctas para formar una palabra. Cada letra que selecciones mal forma la imagen de una flor. Trata de formar la flor."
+        instrucciones: ["Selecciona las letras correctas para formar una palabra.","Cada letra que selecciones mal forma la imagen de una flor.","Trata de formar la flor."]
       }
     };
   },
@@ -83,7 +84,6 @@ export default {
       const palabrasAleatorias = [];
       for (let i = 0; i < cantidad; i++) {
         const indiceAleatorio = Math.floor(Math.random() * palabras.length);
-        console.log(palabras[indiceAleatorio])
         palabrasAleatorias.push(palabras[indiceAleatorio]);
       }
       return palabrasAleatorias;
@@ -96,7 +96,6 @@ export default {
       this.palabrasAdivinar = this.obtenerPalabrasAleatorias(5, palabras);
       this.palabra = this.palabrasAdivinar[this.palabraActualIndex];
       this.palabraOculta = Array(this.palabra.length).fill("_");
-      console.log(this.palabrasAdivinar)
 
 
     },
@@ -121,7 +120,6 @@ export default {
         if (this.intentosTotales === 0) {
           this.disableAll();
           this.fin = true
-          //this.siguientePalabra();
         }
       }
       if (!this.palabraOculta.includes("_")) {
@@ -161,7 +159,7 @@ export default {
       if (this.palabraActualIndex < this.palabrasAdivinar.length) {
         this.palabra = this.palabrasAdivinar[this.palabraActualIndex];
         this.palabraOculta = Array(this.palabra.length).fill("_");
-        this.intentosTotales = 7;
+        this.intentosTotales = 8;
         this.aciertos = 0;
         this.errores = 0;
         this.fin = false;
@@ -214,7 +212,6 @@ export default {
   background-size: 100% 100%;
 
 }
-
 /* Estilos para el teclado */
 .teclado {
   display: grid;

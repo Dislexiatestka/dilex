@@ -4,7 +4,10 @@
       style: 'backdrop-filter: blur(2px)'
     }
   }" modal header="Instrucciones" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+  <div class="instruccion">
     <Instruccion :titulo=instruccion.titulo :instruccion=instruccion.instruccion></Instruccion>
+
+  </div>
     <div class="btn-centrar">
       <button @click="visible = false">Empezar</button>
 
@@ -122,6 +125,9 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+.instruccion {
+  color: #2b698d;
 }
 
 .hello {
