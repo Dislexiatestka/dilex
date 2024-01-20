@@ -5,6 +5,22 @@
     }
   }" modal :header="titulo" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
     <div class="btn-centrar">
+      <div v-if="Array.isArray(contenido)">
+        
+        <p v-for="texto in contenido">
+          {{ texto }}
+        </p>
+        
+
+      </div>
+      <div v-else>
+        <p >
+          {{ contenido }}
+        </p>
+      </div>
+    
+      
+
       <button @click="visible = false">Cerrar</button>
 
     </div>
@@ -34,7 +50,7 @@
             :src="require('@/assets/inicio/img2.jpg')"
             alt=""
           />
-          <div class="overlay2" v-if="mostrarObjetivos">Objetivos</div>
+          <div class="overlay2" v-if="mostrarObjetivos" @click="mostrarModal(2)">Objetivos</div>
         </div>
         <div class="three">
           <img
@@ -42,6 +58,12 @@
             :src="require('@/assets/logos/Logo1Test.png')"
             alt=""
           />
+          <p>
+          Para iniciar el test de clic en el siguiente botón y lea las
+          instrucciones de forma cuidadosa
+        </p>
+
+        <button @click="empezar" class="siguiente">Siguiente</button>
         </div>
         <div
           class="four"
@@ -53,7 +75,7 @@
             :src="require('@/assets/inicio/img3.jpg')"
             alt=""
           />
-          <div class="overlay3" v-if="mostrarEje">Eje Principal</div>
+          <div class="overlay3" v-if="mostrarEje" @click="mostrarModal(3)">Eje Principal</div>
         </div>
         <div
           class="five"
@@ -65,88 +87,12 @@
             :src="require('@/assets/inicio/img4.jpg')"
             alt=""
           />
-          <div class="overlay4" v-if="mostrarBeneficios">Beneficios</div>
+          <div class="overlay4" v-if="mostrarBeneficios" @click="mostrarModal(4)">Beneficios</div>
         </div>
       </div>
-      <header>
-        <img :src="require('@/assets/logos/Logo1Test.png')" />
-      </header>
+      
 
-      <div class="cuadro">
-        <h1><strong>Bienvenidos a Dislextest</strong></h1>
-
-        <h2><strong>¿Qué es?</strong></h2>
-        <p>
-          Dislextest es un test digital dirigido a estudiantes de segundo y
-          tercero de básica elemental que comprenden una edad entre 5 a 7 años.
-          Este test concentra una serie de ejercicios que se enfocan en los
-          procesos de lecto-escritura que desarrollan en los primeros años
-          escolares de cada estudiante. Este surge como una ayuda preventiva
-          para generar una detección de falencias dentro del los procesos de
-          lectura y escritura. Permitiendo identificar algunos síntomas que
-          indiquen que los estudiantes tengan un trastorno del aprendizaje que
-          se oriente en los procesos de lecto-escritura.
-        </p>
-
-        <h2><strong>Objetivo</strong></h2>
-
-        <p>
-          Identificar de forma preventiva los síntomas del trastorno del
-          aprendizaje no asociado a un discapacidad conocido como dislexia en
-          los estudiantes de un rango de edad de 5 a 7 años con ayuda de
-          procesos dinámicos y enfocados en la lecto-escritura.
-        </p>
-
-        <h2><strong>Su eje principal</strong></h2>
-
-        <p>
-          El test se centra en una innovación en la forma en la que se toma los
-          test para detectar los trastornos del aprendizaje no asociados a una
-          discapacidad. Estos ejercicios que son los mas comunes en la mayoría
-          de los test son llevados de forma dinámica, lúdica y apegados a la
-          metodología de la gamificación a la parte digital. Esto permite que el
-          estudiante pueda lo vea al test de una forma amigable, sin precisión o
-          miedo.
-        </p>
-        <p>
-          El test se compondrá de ejercicios que se enfocan en los procesos de
-          comprensión lectora, de conciencia fonológica, así como la parte de la
-          memoria, identificación de palabras entre otros.
-        </p>
-        <p>
-          Cada ejercicio del test se compone a modo de nivel. Es decir, debe
-          completar uno para pasar al siguiente. Dándole un porcentaje al
-          estudiante de errores y aciertos al final de cada uno de los
-          ejercicios en base a cada una temáticas que lo componen.
-        </p>
-
-        <h2><strong>Beneficios</strong></h2>
-        <ul>
-          <li>
-            Involucra al estudiante de forma dinámica y lúdica aprender sobre
-            los procesos de lecto-escritura.
-          </li>
-          <li>
-            Permite identificar los síntomas iniciales del trastorno del
-            aprendizaje de la dislexia.
-          </li>
-          <li>
-            Da un diagnostico preventivo de dificultades o fallas en los
-            procesos de lecto-escritura.
-          </li>
-          <li>
-            Ideal para identificar falencia en los problemas en las parte de la
-            fonología y la compresión lectura.
-          </li>
-        </ul>
-
-        <p>
-          Para iniciar el test de clic en el siguiente botón y lea las
-          instrucciones de forma cuidadosa
-        </p>
-
-        <button @click="empezar" class="siguiente">Siguiente</button>
-      </div>
+      
       <div class="Fondos"></div>
     </div>
   </Transition>
@@ -162,8 +108,19 @@ export default {
       mostrarEje: false,
       mostrarBeneficios: false,
       mostrar: false,
-      titulo:""
-    };
+      titulo:"",
+      contenido:"",
+      contenidos:["Dislextest es un test digital dirigido a estudiantes de segundo y tercero de básica elemental que comprenden una edad entre 5 a 7 años. Este test concentra una serie de ejercicios que se enfocan en los procesos de lecto-escritura que desarrollan en los primeros años escolares de cada estudiante. Este surge como una ayuda preventiva para generar una detección de falencias dentro del los procesos de lectura y escritura. Permitiendo identificar algunos síntomas que indiquen que los estudiantes tengan un trastorno del aprendizaje que se oriente en los procesos de lecto-escritura.",
+    "Identificar de forma preventiva los síntomas del trastorno del aprendizaje no asociado a un discapacidad conocido como dislexia en los estudiantes de un rango de edad de 5 a 7 años con ayuda de procesos dinámicos y enfocados en la lecto-escritura.",
+    ["El test se centra en una innovación en la forma en la que se toma los test para detectar los trastornos del aprendizaje no asociados a una discapacidad. Estos ejercicios que son los mas comunes en la mayoría de los test son llevados de forma dinámica, lúdica y apegados a la metodología de la gamificación a la parte digital. Esto permite que el estudiante pueda lo vea al test de una forma amigable, sin precisión o miedo.",
+  "El test se compondrá de ejercicios que se enfocan en los procesos de comprensión lectora, de conciencia fonológica, así como la parte de la memoria, identificación de palabras entre otros.",
+"Cada ejercicio del test se compone a modo de nivel. Es decir, debe completar uno para pasar al siguiente. Dándole un porcentaje al estudiante de errores y aciertos al final de cada uno de los ejercicios en base a cada una temáticas que lo componen."]
+  ,
+  ["Involucra al estudiante de forma dinámica y lúdica aprender sobre los procesos de lecto-escritura.",
+"Permite identificar los síntomas iniciales del trastorno del aprendizaje de la dislexia.",
+"Da un diagnostico preventivo de dificultades o fallas en los procesos de lecto-escritura.",
+"Ideal para identificar falencia en los problemas en las parte de la fonología y la compresión lectura."]
+   ] };
   },
   mounted() {
     this.show = true;
@@ -213,25 +170,31 @@ export default {
       }
     },
     mostrarModal(num){
-      this.visible=true
       switch (num) {
         case 1:
           this.titulo="¿Qué es?"
-
+          this.contenido=this.contenidos[0]
           break;
         case 2:
         this.titulo="Objetivo"
+        this.contenido=this.contenidos[1]
 
           break;
         case 3:
         this.titulo="Su eje principal"
+        this.contenido=this.contenidos[2]
+
           break;
         case 4:
         this.titulo="Beneficios"
+        this.contenido=this.contenidos[3]
+
           break;
         default:
           break;
       }
+      this.visible=true
+
     }
   },
 };

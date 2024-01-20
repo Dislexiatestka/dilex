@@ -267,7 +267,7 @@ input[type=radio]:checked {
 }
 
 .contenedor {
-    background-image: url("../../assets/fondos/Fondo_Lectura_1.jpg");
+    background-image: url("../../assets/fondos/Fondo_lectura_1.jpg");
     background-size: 100% 100%;
 
 
