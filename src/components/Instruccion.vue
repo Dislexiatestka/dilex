@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       imagen: null,
-      imagenes: ["img1.jpg", "img2.jpg"],
+      imagenes: ["img1.jpg", "img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"],
     };
   },
   mounted() {
@@ -30,7 +30,7 @@ export default {
       this.$router.push("/" + siguiente);
     },
     seleccionarImagen() {
-      const r = this.imagenes[this.getRandomInt(0,2)];
+      const r = this.imagenes[this.getRandomInt(0,4)];
       this.imagen = require("@/assets/vinetas/"+r);
     },
     getRandomInt(min, max) {

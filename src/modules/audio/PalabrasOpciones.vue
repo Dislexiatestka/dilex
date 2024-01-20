@@ -12,9 +12,7 @@ export default {
     words: Array,
     correctWord: String
   },
-  mounted() {
-    console.log(this.words)
-  },
+  
   methods: {
     
     selectWord(selectedWord) {
@@ -30,8 +28,10 @@ export default {
 <style scoped>
 button {
   margin: 10px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 20px;
+  border: 1px solid black;
 
 }
 

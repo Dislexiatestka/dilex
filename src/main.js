@@ -20,6 +20,7 @@ import Dialog from 'primevue/dialog';
 import Splitter from 'primevue/splitter';
 import SplitterPanel from 'primevue/splitterpanel';
 import Toast from 'primevue/toast';
+import Image from 'primevue/image';
 import "primevue/resources/themes/lara-light-indigo/theme.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
@@ -39,5 +40,6 @@ createApp(App).use(store).use(PrimeVue).use(router).use(ToastService)
 .component("SplitterPanel",SplitterPanel)
 .component("Dialog",Dialog)
 .component("Toast",Toast)
+.component("Image",Image)
 
 .mount('#app')
