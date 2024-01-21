@@ -27,6 +27,10 @@
                 <Button @click="resetInforme">Reiniciar</Button>
             </template>
         </DataTable>
+        <div class="contenedor-imagen">
+            <Image :src="require('@/assets/logos/Logo_Informe.jpeg')" :width=300></Image>
+
+        </div>
     </div>
 </template>
   
@@ -123,8 +127,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding: 10px;
 
 }
+
 
 .tabla {
     border-radius: 2rem;
@@ -132,5 +139,8 @@ export default {
     border-width: 2px;
     font-size: 30px;
 
+}
+.contenedor-imagen{
+    margin-top: 20px;
 }
 </style>
