@@ -25,6 +25,7 @@ import "primevue/resources/themes/lara-light-indigo/theme.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import ToastService from 'primevue/toastservice';
+
 createApp(App).use(store).use(PrimeVue).use(router).use(ToastService)
 .use(autoAnimatePlugin)
 .component("Knob",Knob)
