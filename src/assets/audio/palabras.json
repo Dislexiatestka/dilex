@@ -2,19 +2,19 @@
     "palabras": [
       {
         "Palabra": "BRUJA",
-        "Opciones": "vru , gru, tru, bru",
+        "Opciones": "vru,gru,tru,bru",
         "Respuesta": "bru"
       },
       
       {
         "Palabra": "CLAVO",
-        "Opciones": "vo, bo, fo,mo",
+        "Opciones": "vo,bo,fo,mo",
         "Respuesta": "vo"
       },
 
       {
         "Palabra": "FLAUTA",
-        "Opciones": "plau, mau, nau,flau",
+        "Opciones": "plau,mau,nau,flau",
         "Respuesta": "flau"
       },
 
@@ -58,7 +58,7 @@
 
       {
         "Palabra": "TELEFONO",
-        "Opciones": "po, bo,zo,fo",
+        "Opciones": "po,bo,zo,fo",
         "Respuesta": "fo"
       },
 
@@ -88,13 +88,13 @@
 
       {
         "Palabra": "FERROCARRIL",
-        "Opciones": "ro, jo,ño,rro",
+        "Opciones": "ro,jo,ño,rro",
         "Respuesta": "rro"
       },
 
       {
         "Palabra": "CASTOR",
-        "Opciones": "tor,lor,kor, mor",
+        "Opciones": "tor,lor,kor,mor",
         "Respuesta": "tor"
       },
 
@@ -112,76 +112,76 @@
 
       {
         "Palabra": "RANA",
-        "Opciones": "la, na, ma,ra",
+        "Opciones": "la,na,ma,ra",
         "Respuesta": "ra"
       },
 
       {
         "Palabra": "LAPIZ",
-        "Opciones": "piz,pis, liz, nis",
+        "Opciones": "piz,pis,liz,nis",
         "Respuesta": "piz"
       },
 
       {
         "Palabra": "JINETE",
-        "Opciones": "gi, gui, di,ji",
+        "Opciones": "gi,gui,di,ji",
         "Respuesta": "ji"
       },
 
       {
         "Palabra": "GUITARRA",
-        "Opciones": "jui,gui,ji, hi",
+        "Opciones": "jui,gui,ji,hi",
         "Respuesta": "gui"
       },
 
 
       {
         "Palabra": "VASIJA",
-        "Opciones": "la, ga, xa,ja",
+        "Opciones": "la,ga,xa,ja",
         "Respuesta": "ja"
       },
 
 
       {
         "Palabra": "YATE",
-        "Opciones": "lla, xa, ra,ya",
+        "Opciones": "lla,xa,ra,ya",
         "Respuesta": "ya"
       },
 
       {
         "Palabra": "LIBRO",
-        "Opciones": "cro ,bro, vro , gro",
+        "Opciones": "cro,bro,vro,gro",
         "Respuesta": "bro"
       },
 
       {
         "Palabra": "LLAVE",
-        "Opciones": " ya, ga , xa,lla",
+        "Opciones": " ya,ga,xa,lla",
         "Respuesta": "lla"
       },
 
 
       {
         "Palabra": "ALFABETO",
-        "Opciones": "la, ba, pa, fa",
+        "Opciones": "la,ba,pa,fa",
         "Respuesta": "fa"
       },
 
       {
         "Palabra": "BALLENA",
-        "Opciones": "ye,lle, gue,xe",
+        "Opciones": "ye,lle,gue,xe",
         "Respuesta": "lle"
       },
 
       {
         "Palabra": "TIGRE",
-        "Opciones": "li, pi, vi,ti",
+        "Opciones": "li,pi,vi,ti",
         "Respuesta": "ti"
       },
 
       {
         "Palabra": "JIRAFA",
-        "Opciones": "gui,yi, gi,ji",
+        "Opciones": "gui,yi,gi,ji",
         "Respuesta": "ji"
       }
     ]
