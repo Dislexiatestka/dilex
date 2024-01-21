@@ -1,65 +1,69 @@
-import { createRouter, createWebHashHistory  } from 'vue-router';
+import { createRouter, createWebHashHistory } from "vue-router";
 
-const HomeView = () => import('../views/HomeView.vue');
-const AboutView = () => import('../views/AboutView.vue');
-const Bienvenida = () => import('../components/Bienvenida.vue');
-const Instruccciones = () => import('../components/Instrucciones.vue');
-const Ahorcado = () => import('../modules/ahorcado/Ahorcado.vue');
-const Memoria = () => import('../modules/memoria/Juego.vue');
-const Audio = () => import('../modules/audio/Juego.vue');
-const Informe = () => import('../modules/informe/Informe.vue');
-const Segmentacion = () => import('../modules/segmentacion/Lectura.vue');
-const ComprensionLectora = () => import('../modules/comprensionLectora/Juego.vue');
+const HomeView = () => import("../views/HomeView.vue");
+const AboutView = () => import("../views/AboutView.vue");
+const Bienvenida = () => import("../components/Bienvenida.vue");
+const Instruccciones = () => import("../components/Instrucciones.vue");
+const Mensaje = () => import("../components/Mensaje.vue");
+
+const Ahorcado = () => import("../modules/ahorcado/Ahorcado.vue");
+const Memoria = () => import("../modules/memoria/Juego.vue");
+const Audio = () => import("../modules/audio/Juego.vue");
+const Informe = () => import("../modules/informe/Informe.vue");
+const Segmentacion = () => import("../modules/segmentacion/Lectura.vue");
+const ComprensionLectora = () =>
+  import("../modules/comprensionLectora/Juego.vue");
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     component: HomeView,
   },
+  { path: "/mensaje/:ruta", component: Mensaje },
   {
-    path: '/instrucciones',
-    name: 'instrucciones',
+    path: "/instrucciones",
+    name: "instrucciones",
     component: Instruccciones,
   },
   {
-    path: '/inicio',
-    name: 'inicio',
+    path: "/inicio",
+    name: "inicio",
     component: Bienvenida,
   },
   {
-    path: '/comprension',
-    name: 'comprension',
+    path: "/comprension",
+    name: "comprension",
     component: ComprensionLectora,
   },
   {
-    path: '/acerca',
-    name: 'acerca',
+    path: "/acerca",
+    name: "acerca",
     component: AboutView,
   },
   {
-    path: '/segmentacion',
-    name: 'segmentacion',
+    path: "/segmentacion",
+    name: "segmentacion",
     component: Segmentacion,
   },
   {
-    path: '/ahorcado',
-    name: 'ahorcado',
+    path: "/ahorcado",
+    name: "ahorcado",
     component: Ahorcado,
   },
   {
-    path: '/memoria',
-    name: 'memoria',
+    path: "/memoria",
+    name: "memoria",
     component: Memoria,
   },
   {
-    path: '/audio',
-    name: 'audio',
+    path: "/audio",
+    name: "audio",
     component: Audio,
   },
   {
-    path: '/informe',
-    name: 'informe',
+    path: "/informe",
+    name: "informe",
     component: Informe,
   },
 ];

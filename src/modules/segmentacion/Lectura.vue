@@ -95,7 +95,8 @@ export default {
       const jsonData = JSON.stringify(data);
       localStorage.setItem('informeSegmentacion', jsonData);
 
-      this.$router.push('/comprension')
+      this.$router.push('/mensaje/comprension');
+
 
     },
     comenzarEjercicio() {

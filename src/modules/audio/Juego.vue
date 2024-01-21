@@ -177,7 +177,8 @@ export default {
         };
         const jsonData = JSON.stringify(data);
         localStorage.setItem("informeAudio", jsonData);
-        this.$router.push("/segmentacion");
+        this.$router.push('/mensaje/segmentacion');
+
       }
     },
   },

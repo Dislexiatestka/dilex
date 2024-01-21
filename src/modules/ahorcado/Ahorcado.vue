@@ -1,36 +1,58 @@
 <template>
- 
-  <Dialog v-model:visible="visible" :pt="{
-    mask: {
-      style: 'backdrop-filter: blur(2px)'
-    }
-  }" modal header="Instrucciones" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
-    <Instruccion :titulo=instruccion.titulo :instrucciones=instruccion.instrucciones></Instruccion>
+  <Dialog
+    v-model:visible="visible"
+    :pt="{
+      mask: {
+        style: 'backdrop-filter: blur(2px)',
+      },
+    }"
+    modal
+    header="Instrucciones"
+    :style="{ width: '50rem' }"
+    :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+  >
+    <Instruccion
+      :titulo="instruccion.titulo"
+      :instrucciones="instruccion.instrucciones"
+    ></Instruccion>
     <div class="btn-centrar">
       <button @click="visible = false">Empezar</button>
-
     </div>
   </Dialog>
   <div class="contenedor">
     <div class="tablero">
       <h1>Juego del ahorcado</h1>
-      <h2>Intentos Restantes: </h2>
-      <Knob v-model="intentosTotales" :max="8" :step="-1" readonly valueColor="MediumTurquoise" rangeColor="SlateGray" />
+      <h2>Intentos Restantes:</h2>
+      <Knob
+        v-model="intentosTotales"
+        :max="8"
+        :step="-1"
+        readonly
+        valueColor="MediumTurquoise"
+        rangeColor="SlateGray"
+      />
 
       <div class="palabra">
-        <span v-for="(letra, indice) in palabraOculta" :key="indice">{{ letra }}</span>
+        <span v-for="(letra, indice) in palabraOculta" :key="indice">{{
+          letra
+        }}</span>
       </div>
 
       <div class="grilla">
         <!-- Teclado virtual -->
         <div class="teclado">
-          <button :id="letra" v-for="letra in alfabeto" :key="letra" @click="obtenerLetra(letra)"
-            :disabled="tecladoDeshabilitado">
+          <button
+            :id="letra"
+            v-for="letra in alfabeto"
+            :key="letra"
+            @click="obtenerLetra(letra)"
+            :disabled="tecladoDeshabilitado"
+          >
             {{ letra }}
           </button>
         </div>
         <div>
-          <img :src="imagenActual" alt="">
+          <img :src="imagenActual" alt="" />
         </div>
       </div>
     </div>
@@ -38,12 +60,13 @@
       <button @click="siguientePalabra" class="siguiente">Siguiente</button>
     </div>
   </div>
-  <img :src="require('@/assets/logos/Logo1Test.png')" alt="" >
+  <img :src="require('@/assets/logos/Logo1Test.png')" alt="" />
+
 </template>
 
 <script>
-import palabrasRaw from "@/assets/ahorcado/palabras.json"
-import Instruccion from "@/components/Instruccion.vue"
+import palabrasRaw from "@/assets/ahorcado/palabras.json";
+import Instruccion from "@/components/Instruccion.vue";
 
 export default {
   components: {
@@ -51,6 +74,7 @@ export default {
   },
   data() {
     return {
+      nextPageRoute: "memoria",
       visible: false,
       aciertos: 0,
       imagenActual: "assets/flor/est1.png",
@@ -68,13 +92,16 @@ export default {
       contadorCorrecto: 0,
       instruccion: {
         titulo: "Actividad del Ahorcado",
-        instrucciones: ["Selecciona las letras correctas para formar una palabra.","Cada letra que selecciones mal forma la imagen de una flor.","Trata de formar la flor."]
-      }
+        instrucciones: [
+          "Selecciona las letras correctas para formar una palabra.",
+          "Cada letra que selecciones mal forma la imagen de una flor.",
+          "Trata de formar la flor.",
+        ],
+      },
     };
   },
   mounted() {
-    this.visible = true
-
+    this.visible = true;
   },
   created() {
     this.cargarPalabras();
@@ -89,68 +116,63 @@ export default {
       return palabrasAleatorias;
     },
     cargarPalabras() {
-
-
       const palabras = palabrasRaw.palabras;
 
       this.palabrasAdivinar = this.obtenerPalabrasAleatorias(5, palabras);
       this.palabra = this.palabrasAdivinar[this.palabraActualIndex];
       this.palabraOculta = Array(this.palabra.length).fill("_");
-
-
     },
     obtenerLetra(letra) {
       if (this.palabra.includes(letra)) {
         this.palabra.split("").forEach((elemento, i) => {
           if (elemento === letra) {
-            document.getElementById(letra).style.backgroundColor = 'green'
-            document.getElementById(letra).style.color = 'white'
-            document.getElementById(letra).disabled = true
-            this.palabraOculta[i] = letra
+            document.getElementById(letra).style.backgroundColor = "green";
+            document.getElementById(letra).style.color = "white";
+            document.getElementById(letra).disabled = true;
+            this.palabraOculta[i] = letra;
             this.aciertos++;
           }
         });
-      }
-      else {
-        document.getElementById(letra).style.backgroundColor = 'red'
-        document.getElementById(letra).style.color = 'white'
-        document.getElementById(letra).disabled = true
+      } else {
+        document.getElementById(letra).style.backgroundColor = "red";
+        document.getElementById(letra).style.color = "white";
+        document.getElementById(letra).disabled = true;
         this.errores++;
         this.intentosTotales--;
         if (this.intentosTotales === 0) {
           this.disableAll();
-          this.fin = true
+          this.fin = true;
         }
       }
       if (!this.palabraOculta.includes("_")) {
-        this.fin = true
-        this.disableAll()
-        this.imagenActual = "assets/flor/est5.png"
-        this.contadorCorrecto++
-        return
+        this.fin = true;
+        this.disableAll();
+        this.imagenActual = "assets/flor/est5.png";
+        this.contadorCorrecto++;
+        return;
       }
       switch (this.aciertos) {
         case 1:
-          this.imagenActual = "assets/flor/est2.png"
+          this.imagenActual = "assets/flor/est2.png";
           break;
         case 2:
-          this.imagenActual = "assets/flor/est3.png"
+          this.imagenActual = "assets/flor/est3.png";
           break;
         case 3:
-          this.imagenActual = "assets/flor/est4.png"
+          this.imagenActual = "assets/flor/est4.png";
           break;
         case this.palabra.length:
-          this.imagenActual = "assets/flor/est5.png"
+          this.imagenActual = "assets/flor/est5.png";
           break;
         default:
           break;
       }
     },
     disableAll() {
-      document.getElementById("A").disabled = true
+      document.getElementById("A").disabled = true;
       for (let index = 0; index < this.alfabeto.length; index++) {
         const element = this.alfabeto[index];
-        document.getElementById(element).disabled = true
+        document.getElementById(element).disabled = true;
       }
       this.tecladoDeshabilitado = true;
     },
@@ -168,17 +190,16 @@ export default {
         this.resetTeclado();
         this.tecladoDeshabilitado = false;
       } else {
-
         const data = {
-          ahorcado: this.contadorCorrecto * 10
+          ahorcado: this.contadorCorrecto * 10,
         };
         const jsonData = JSON.stringify(data);
-        localStorage.setItem('informeAhorcado', jsonData);
-        
-        this.$router.push('/memoria')
+        localStorage.setItem("informeAhorcado", jsonData);
+        this.$router.push('/mensaje/memoria');
 
       }
     },
+   
     enableAll() {
       for (let index = 0; index < this.alfabeto.length; index++) {
         const element = this.alfabeto[index];
@@ -191,11 +212,10 @@ export default {
         document.getElementById(element).style.backgroundColor = "white";
         document.getElementById(element).style.color = "black";
       }
-    }
-  }
+    },
+  },
 };
 </script>
-
 
 <style scoped>
 .grilla {
@@ -210,7 +230,6 @@ export default {
   flex-direction: column;
   background-image: url("../../assets/fondos/Fondo_Ahorcado.jpg");
   background-size: 100% 100%;
-
 }
 /* Estilos para el teclado */
 .teclado {
@@ -231,7 +250,6 @@ export default {
 }
 
 .teclado button:hover {
-
   background-color: aqua;
 }
 
@@ -254,20 +272,14 @@ span {
   margin: 10px;
 }
 
-
-
-
-
 img {
   width: 300px;
 }
 
 .siguiente {
-
   margin: 10px;
   border-radius: 5px;
   font-size: 20px;
-
 }
 
 .siguiente:hover {
@@ -292,7 +304,7 @@ img {
 }
 
 .btn-centrar button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 </style>

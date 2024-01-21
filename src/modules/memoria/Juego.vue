@@ -109,7 +109,8 @@ export default {
       };
       const jsonData = JSON.stringify(data);
       localStorage.setItem('informeMemoria', jsonData);
-      this.$router.push('/audio')
+      this.$router.push('/mensaje/audio');
+
     },
     siguienteJuego() {
       this.words = []

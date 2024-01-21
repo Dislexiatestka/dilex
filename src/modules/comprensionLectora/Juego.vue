@@ -165,7 +165,7 @@ export default {
                 const jsonData = JSON.stringify(data);
                 localStorage.setItem('informeComprension', jsonData);
 
-                this.$router.push('/informe')
+                this.$router.push('/mensaje/informe');
 
 
             }
@@ -267,7 +267,7 @@ input[type=radio]:checked {
 }
 
 .contenedor {
-    background-image: url("../../assets/fondos/Fondo_lectura_1.jpg");
+    background-image: url("../../assets/fondos/Fondo_Lectura_1.jpg");
     background-size: 100% 100%;
 
 
