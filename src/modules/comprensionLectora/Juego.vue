@@ -154,7 +154,6 @@ export default {
             console.log(this.indexLectura)
             if (this.indexLectura == 4) {
                 this.esLectura = true
-                this.fondoImagen = "../../assets/fondos/Fondo_lectura_2.jpg"
                 this.imagen = require('@/assets/comprensionLectora/imagenes/Lectura' + this.indexLectura + '.jpg')
 
             }
