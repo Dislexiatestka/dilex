@@ -208,6 +208,11 @@ header {
 }
 .contenedor-dialog button{
   width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: #69f3b7;
+  border-radius: 10px;
 }
 .contenedor-dialog h1 {
   color: red;
